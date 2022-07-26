@@ -1,0 +1,305 @@
+.header
+	position: relative
+	z-index: 99
+	display: flex
+	align-items: flex-end
+	height: 90px
+	padding-bottom: 10px
+	background-color: $white
+	+media-breakpoint-down(xl)
+		align-items: center
+		padding-bottom: 0
+	+media-breakpoint-down(md)
+		height: 70px
+
+	&-logo
+		position: relative
+		z-index: 3
+		display: flex
+		&-link
+			display: inline-block
+			.logo-desktop,
+			.logo-mobile
+				width: auto
+				height: 34px
+				+media-breakpoint-down(md)
+					height: 30px
+
+	&-burger
+		width: 24px
+		height: 24px
+		color: $dark
+		font-size: 24px
+
+	&-lang
+		margin-left: 20px
+		font-size: 16px
+		font-size: $w-regular
+		+media-breakpoint-down(sm)
+			margin-left: 15px
+
+	&-nav
+		&-list
+			display: flex
+			flex-wrap: wrap
+			align-items: center
+		&-item
+			display: inline-flex
+			align-items: center
+			height: 40px
+			&:not(:last-child)
+				margin-right: 70px
+				+media-breakpoint-down(xxl)
+					margin-right: 45px
+			&:hover
+				.header-nav-link
+					&::before
+						transform: scaleX(1)
+		&-link
+			position: relative
+			z-index: 2
+			display: inline-flex
+			align-items: center
+			height: 100%
+			+font-size(xs)
+			text-transform: lowercase
+			&::before
+				content: ''
+				position: absolute
+				top: 85%
+				left: 0
+				right: 0
+				height: 1px
+				background-color: $black
+				will-change: transform
+				transform: scaleX(0)
+				transition: transform $trs
+			&:hover
+				&::before
+					transform: scaleX(1)
+		&-dropdown
+			&::before
+				content: ''
+				pointer-events: none
+				position: fixed
+				top: 0
+				left: 0
+				z-index: -1
+				width: 100vw
+				height: 100vh
+				background-color: rgba($black, 0.35)
+				visibility: hidden
+				opacity: 0
+				transition: visibility $trs, opacity $trs
+			&:hover
+				&::before
+					opacity: 1
+					visibility: visible
+				.megamenu
+					pointer-events: auto
+					opacity: 1
+					visibility: visible
+					transform: translateY(0)
+			.header-nav-link
+				&::after
+					content: ''
+					flex: 0 0 auto
+					display: block
+					width: 6px
+					height: 6px
+					margin-left: 6px
+					background: url('../images/icons/dropdown-arrow.svg') no-repeat center/100%
+
+		// Megamenu (dropdown)
+		.megamenu
+			pointer-events: none
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			z-index: 1
+			padding-top: 120px
+			background-color: $white
+			visibility: hidden
+			opacity: 0
+			transform: translateY(-10px)
+			transition: $trs
+			+media-breakpoint-down(xxl)
+				padding-top: 90px
+			// Scrollbar
+			+media-breakpoint-up(md)
+				*
+					scrollbar-width: thin
+					scrollbar-color: $gray-300 $border
+				::-webkit-scrollbar
+					width: 4px
+				::-webkit-scrollbar-track
+					border: 1px solid $white
+					background-color: $border
+				::-webkit-scrollbar-thumb
+					background-color: $gray-300
+					&:hover
+						background-color: $gray-200
+			&-wrapper
+				background-color: $white
+				padding-top: 60px
+				padding-bottom: 60px
+			&-nav
+				display: flex
+				flex-direction: column
+				padding-right: 60px
+				margin-right: 15px
+				overflow-y: auto
+				overflow-x: hidden
+				height: 52vh
+				min-height: 300px
+				max-height: 520px
+				&-item
+					&:not(:first-child)
+						padding-top: 15px
+					&:not(:last-child)
+						padding-bottom: 15px
+				&-link
+					position: relative
+					display: inline-flex
+					align-items: center
+					flex-wrap: nowrap
+					font-size: 42px
+					line-height: 1.15
+					> span
+						flex: 1 1 auto
+					+media-breakpoint-down(xxl)
+						font-size: 32px
+					&::after
+						content: ''
+						flex: 0 0 auto
+						display: inline-block
+						width: 114px
+						height: 20px
+						margin-left: 60px
+						background: url('../images/icons/long-arrow.svg') no-repeat left/contain
+						opacity: 0
+						will-change: transform
+						transform: translateX(-15px)
+						transition: $trs
+						+media-breakpoint-down(xxl)
+							margin-left: 30px
+							width: 80px
+							height: 16px
+					&:hover
+						&::after
+							opacity: 1
+							transform: translateX(0)
+			&-gallery
+				position: relative
+				height: 52vh
+				min-height: 300px
+				max-height: 470px
+				&-item
+					position: absolute
+					top: 0
+					left: 0
+					right: 0
+					bottom: 0
+					opacity: 0
+					visibility: hidden
+					transition: $trs
+					&._is-active
+						opacity: 1
+						visibility: visible
+
+	&-actions
+		position: relative
+		z-index: 3
+		display: flex
+		align-items: center
+		+media-breakpoint-down(xl)
+			justify-content: flex-end
+		&-item
+			position: relative
+			line-height: 1
+			&:not(:first-child)
+				margin-left: 30px
+				+media-breakpoint-down(xxl)
+					margin-left: 20px
+				+media-breakpoint-down(sm)
+					margin-left: 15px
+			&::after
+				content: ''
+				position: absolute
+				left: 0
+				right: 0
+				bottom: -6px
+				height: 1px
+				background-color: $black
+				will-change: transform
+				transform: scaleX(0)
+				transition: transform $trs
+				+media-breakpoint-down(xl)
+					display: none
+			> svg
+				width: 22px
+				height: 22px
+				+media-breakpoint-down(sm)
+					width: 20px
+					height: 20px
+			> .count
+				overflow: hidden
+				position: absolute
+				right: -4px
+				bottom: -4px
+				display: flex
+				align-items: center
+				justify-content: center
+				width: 16px
+				height: 16px
+				border-radius: 50%
+				background-color: $black
+				color: $white
+				font-size: 10px
+				font-weight: $w-medium
+				line-height: 1
+				+media-breakpoint-down(sm)
+					width: 14px
+					height: 14px
+					font-size: 8px
+				&._is-hidden
+					display: none
+			&:hover
+				&::after
+					transform: scaleX(1)
+		// Search
+		&-search
+			cursor: pointer
+			+media-breakpoint-down(xl)
+				display: none
+			> svg
+				position: relative
+				top: 2px
+			&._is-opened
+				.form-search
+					pointer-events: auto
+					width: 300px
+					opacity: 1
+					visibility: visible
+			.form-search
+				pointer-events: none
+				position: absolute
+				top: -10px
+				right: -14px
+				z-index: 4
+				width: 50px
+				opacity: 0
+				visibility: hidden
+				transition: width $trs, visibility $trs, opacity $trs
+				&-field
+					margin-bottom: 0
+				&-btn
+					font-size: 22px
+		// Language
+		&-lang
+			font-size: 16px
+			font-weight: $w-medium
+			text-transform: uppercase
+			+media-breakpoint-down(xl)
+				display: none

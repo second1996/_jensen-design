@@ -1,0 +1,89 @@
+// Base
+button, .btn
+	position: relative
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	padding: 0
+	border: 0
+	border-radius: 0
+	background-color: $white
+	color: $black
+	font-family: inherit
+	font-size: 16px
+	font-weight: $w-regular
+	line-height: 1
+	text-align: center
+	white-space: nowrap
+	outline: 0
+	transition: background $trs, border $trs, box-shadow $trs, color $trs, opacity $trs
+	+media-breakpoint-down(lg)
+		font-size: 15px
+
+.btn
+	min-width: 260px
+	height: 60px
+	padding-left: 20px
+	padding-right: 20px
+	border: 1px solid $dark
+	+media-breakpoint-down(lg)
+		min-width: 200px
+		height: 52px
+	&:not(.btn-arrow):not(.btn-back-arrow):not(.btn-favorite):not(.btn-purchase):hover
+		color: $white
+		background-color: $dark
+	&:disabled
+		opacity: 0.9
+
+// Themes
+.btn.btn-dark
+	background-color: $dark
+	color: $white
+	&:hover
+		background-color: $dark
+	&.btn-arrow::after,
+	&.btn-back-arrow::before
+		background-image: url('../images/icons/short-white-arrow.svg')
+
+// Variants
+.btn.btn-arrow
+	transition-property: padding
+	&:hover
+		padding-left: 10px
+		&::after
+			transform: translateX(10px)
+	&::after
+		content: ''
+		display: inline-block
+		width: 20px
+		height: 7px
+		margin-left: 10px
+		background: url('../images/icons/short-dark-arrow.svg') no-repeat left center / contain
+		will-change: transform
+		transition: transform $trs
+
+.btn.btn-back-arrow
+	transition-property: padding
+	&:hover
+		padding-right: 10px
+		&::before
+			transform: translateX(-10px) scaleX(-1)
+	&::before
+		content: ''
+		display: inline-block
+		width: 20px
+		height: 7px
+		margin-right: 10px
+		background: url('../images/icons/short-dark-arrow.svg') no-repeat left center / contain
+		will-change: transform
+		transform: translateX(0) scaleX(-1)
+		transition: transform $trs
+
+.btn-close
+	width: 24px
+	height: 24px
+	font-size: 22px
+	+media-breakpoint-down(sm)
+		font-size: 18px
+	&:hover
+		color: $gray-300

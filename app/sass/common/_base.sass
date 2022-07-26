@@ -1,0 +1,142 @@
+@import '../helpers/helpers'
+
+::selection
+	background-color: $black
+	color: $white
+
+body
+	overflow-x: hidden
+	position: relative
+	min-width: 320px
+	color: $black
+	font-family: $font
+	font-weight: $w-light
+	+font-size(xs)
+	&.lock-scroll
+		overflow: hidden
+		height: 100%
+
+figure
+	margin: 0
+
+ul
+	list-style: none
+	margin: 0
+	padding: 0
+
+a
+	position: relative
+	display: inline-block
+	color: $black
+	text-decoration: none
+	transition: $trs
+	&:hover
+		color: $black
+	&[data-fancybox]
+		outline: none
+
+img
+	user-select: none
+	display: inline-block
+	max-width: 100%
+	height: auto
+
+h1
+	+font-size(xl)
+	font-weight: $w-bold
+
+h2
+	+font-size(xl)
+	font-weight: $w-bold
+
+h3
+	+font-size(lg)
+	font-weight: $w-bold
+
+h4
+	+font-size(md)
+	font-weight: $w-semibold
+
+h5, h6
+	+font-size(sm)
+	font-weight: $w-medium
+
+hr
+	display: block
+	width: 100%
+	height: 1px
+	margin: 30px 0
+	background-color: $border
+	border: 0
+
+p
+	> a
+		font-weight: $w-semibold
+		&:hover
+			color: $gray-200
+
+b, strong
+	font-weight: $w-bold
+
+// Customize svg icon
+.icon
+	display: inline-block
+	width: 1em
+	height: 1em
+	stroke-width: 0
+	stroke: currentColor
+	fill: currentColor
+
+// Dark overlay
+.backdrop
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	z-index: 899
+	background-color: rgba($black, 0.35)
+	opacity: 0
+	visibility: hidden
+	transition: $trs
+	&.show
+		opacity: 1
+		visibility: visible
+
+// Customize Scrollbar
+.scrollbar
+	+media-breakpoint-up(md)
+		*
+			scrollbar-width: thin
+			scrollbar-color: $dark $gray-300
+		::-webkit-scrollbar
+			width: 6px
+		::-webkit-scrollbar-track
+			border: 2px solid $white
+			background-color: $gray-300
+		::-webkit-scrollbar-thumb
+			background-color: $dark
+			&:hover
+				background-color: $gray-200
+
+// Spinner (Loader)
+.loader
+	width: 20px
+	height: 20px
+	border-radius: 50%
+	position: relative
+	animation: rotate 1s linear infinite
+	&.loader-lg
+		width: 32px
+		height: 32px
+	&.loader--white::before
+		border-color: $white
+	&::before
+		content: ''
+		box-sizing: border-box
+		position: absolute
+		inset: 0px
+		border-radius: 50%
+		border: 1px solid $dark
+		transition: border $trs
+		animation: spinner 2s linear infinite 

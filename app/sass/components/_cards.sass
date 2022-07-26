@@ -1,0 +1,100 @@
+// Base
+.card
+	position: relative
+	display: block
+	height: 100%
+
+// Card Styling service
+.card.card-styling
+	display: flex
+	flex-direction: column
+	border: 1px solid $dark
+	background-color: $dark
+	.card-body
+		flex: 1 1 auto
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+		justify-content: flex-end
+		padding: 45px 30px
+		background-color: $white
+		+media-breakpoint-down(lg)
+			padding: 30px 20px
+		.logo
+			height: 82px
+			margin-bottom: 30px
+			+media-breakpoint-down(lg)
+				height: 64px
+		.title
+			margin-bottom: 0
+		.description
+			margin-top: 20px
+			margin-bottom: 0
+	.card-footer
+		flex: 0 0 auto
+		.btn 
+			width: 100%
+			min-width: auto
+
+// Card Service
+.card.card-service
+	display: flex
+	flex-direction: column
+	border: 1px solid $dark
+	.heading
+		flex: 0 0 auto
+		padding: 20px 20px
+		border-bottom: 1px solid $dark
+		+media-breakpoint-down(md)
+			padding: 15px
+		&-photo
+			height: 260px
+			+media-breakpoint-down(xl)
+				height: 220px
+			+media-breakpoint-down(md)
+				height: 180px
+		&-meta
+			display: flex
+			align-items: flex-start
+			.title
+				flex: 1 1 auto
+				margin-top: 20px
+				margin-bottom: 0
+				padding-right: 10px
+				+font-size(xs)
+				font-weight: $w-bold
+			.price
+				flex: 0 0 auto
+				margin-top: 20px
+				font-weight: $w-semibold
+	.includes
+		flex: 1 0 auto
+		padding: 30px 20px
+		+media-breakpoint-down(md)
+			padding: 15px
+		&-title
+			margin-bottom: 20px
+			font-weight: $w-semibold
+			+media-breakpoint-down(md)
+				margin-bottom: 10px
+		&-list
+			> li
+				&:not(:last-child)
+					margin-bottom: 6px
+				&::before
+					content: '/ '
+					margin-right: 6px
+	.order
+		flex: 0 0 auto
+		border-top: 1px solid $dark
+		&-btn
+			width: 100%
+			min-width: auto
+			border: 0
+			background-color: $trsp
+			transition: $trs
+			&:hover
+				background-color: $dark
+				color: $white
+				&::after
+					background-image: url('../images/icons/short-white-arrow.svg')

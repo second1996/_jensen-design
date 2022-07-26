@@ -1,0 +1,180 @@
+// Base
+::placeholder
+	color: #999
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration
+	display: none
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+	-webkit-appearance: none
+	margin: 0
+
+input[type=number]
+	-moz-appearance: textfield
+
+input, textarea
+	outline: none
+	font-family: $font
+	// &:focus:required:invalid
+	// 	border-color: red
+	// &:required:valid
+	// 	border-color: $black
+
+input:not(:placeholder-shown),
+textarea:not(:placeholder-shown)
+	border-bottom-color: $black
+
+label
+	cursor: pointer
+	word-break: break-word
+	a
+		color: $black
+		&:hover
+			color: $black
+
+// Input, Textarea, Select
+.form-control,
+.form-textarea,
+.form-select
+	outline: none
+	appearance: none
+	display: block
+	width: 100%
+	height: 60px
+	margin-bottom: 20px
+	padding-left: 20px
+	padding-right: 20px
+	border-radius: 0
+	border: 1px solid $dark
+	background-color: $white
+	background-clip: padding-box
+	color: $black
+	+font-size(xxs)
+	font-weight: $w-regular
+	transition: border-color .3s ease-in-out, box-shadow .3s ease-in-out, background-color .3s ease-in-out
+	+media-breakpoint-down(lg)
+		height: 52px
+	&:focus
+		box-shadow: 0 0 0 3px rgba($dark, 0.085)
+
+// Form Select
+.form-select
+	cursor: pointer
+	padding-right: 40px
+	background: $white url('../images/icons/dropdown-arrow.svg') no-repeat right 16px center / 8px
+
+// Form Checkbox & Radio
+.form-checkbox,
+.form-radio
+	position: relative
+	display: flex
+	flex-wrap: wrap
+	align-items: center
+	margin-bottom: 8px
+	input[type="checkbox"],
+	input[type="radio"]
+		position: absolute
+		top: 5px
+		left: 0
+		width: 16px
+		height: 16px
+		opacity: 0
+	input:checked + label::after
+		opacity: 1
+
+.form-checkbox-inner
+	position: relative
+	width: 100%
+	margin-bottom: 20px
+	color: $dark
+	+font-size(xxs)
+	input[type="checkbox"]
+		position: absolute
+		top: 5px
+		left: 0
+		width: 16px
+		height: 16px
+		opacity: 0
+		&:checked ~ .form-checkbox-inner-title::after
+			opacity: 1
+	.optional
+		display: none
+	&-title
+		position: relative
+		padding-left: 30px
+		&::before,
+		&::after
+			content: ''
+			flex: 0 0 auto
+			position: absolute
+			top: 3px
+			left: 0
+			width: 16px
+			height: 16px
+			border: 1px solid $dark
+			background-size: 100%
+			transition: background-color $trs, box-shadow $trs, opacity .15s ease
+		&::before
+			background-color: $white
+		&::after
+			background: $black url('../images/icons/checkbox-white.svg') no-repeat center/8px
+			opacity: 0
+	&:hover
+		.form-checkbox-inner-title::before
+			background-color: $border
+	&:active
+		.form-checkbox-inner-title::before,
+		.form-checkbox-inner-title::after
+			box-shadow: 0 0 0 2px rgba($dark, 0.1)
+
+.form-checkbox-label
+	position: relative
+	width: 100%
+	margin-bottom: 0
+	padding-top: 0
+	padding-left: 30px
+	color: $dark
+	+font-size(xxs)
+	> a
+		font-weight: $w-semibold
+	&::before,
+	&::after
+		content: ''
+		flex: 0 0 auto
+		position: absolute
+		top: 4px
+		left: 0
+		width: 16px
+		height: 16px
+		border: 1px solid $dark
+		background-size: 100%
+		transition: background-color $trs, box-shadow $trs, opacity .15s ease
+	&::before
+		background-color: $white
+	&::after
+		background: $black url('../images/icons/checkbox-white.svg') no-repeat center/8px
+		opacity: 0
+	&:hover::before
+		background-color: $border
+	&:active::before,
+	&:active::after
+		box-shadow: 0 0 0 2px rgba($dark, 0.1)
+	.color-badge
+		flex: 0 0 auto
+		align-self: center
+		width: 16px
+		height: 16px
+		margin-left: 10px
+		border-radius: 50%
+
+// Privacy Policy
+.form-policy
+	margin-top: 16px
+	margin-bottom: 0
+	+font-size(xxs)
+	+media-breakpoint-down(xs)
+		font-size: 14px

@@ -1,0 +1,168 @@
+.styling
+	&-navigation
+		display: grid
+		grid-template-columns: repeat(3, 1fr)
+		+media-breakpoint-down(sm)
+			grid-template-columns: 1fr
+		&-item
+			display: flex
+			align-items: center
+			justify-content: center
+			height: 60px
+			margin-right: -1px
+			margin-bottom: -1px
+			padding: 10px
+			border: 1px solid $dark
+			background-color: $white
+			font-size: 16px
+			line-height: 1.25
+			text-align: center
+			+media-breakpoint-down(sm)
+				height: 50px
+			&:hover
+				background-color: $dark
+				color: $white
+
+	// Section: Rooms
+	&-rooms
+		&-slider
+			&-main
+				.card.card-category
+					margin-bottom: 0
+					.card-photo
+						height: 410px
+						+media-breakpoint-down(xl)
+							height: 320px
+						+media-breakpoint-down(md)
+							height: 280px
+						+media-breakpoint-down(sm)
+							height: 240px
+						+media-breakpoint-down(xs)
+							height: 200px
+			&-secondary
+				height: 100%
+				padding-left: 1px
+				.swiper-slide
+					&:not(.swiper-slide-active)
+						cursor: pointer
+						+media-breakpoint-down(lg)
+							cursor: default
+							opacity: 0.3
+							transition: opacity $trs
+				&-navigation
+					+media-breakpoint-up(lg)
+						position: absolute
+						right: 0
+						bottom: 0
+					+media-breakpoint-down(lg)
+						justify-content: center
+						margin-top: 20px
+				.card.card-category
+					margin-bottom: 0
+					.card-photo
+						height: 270px
+						+media-breakpoint-down(xl)
+							height: 200px
+						+media-breakpoint-down(lg)
+							height: 100px
+						+media-breakpoint-down(sm)
+							height: 60px
+					.card-meta
+						+media-breakpoint-down(lg)
+							display: none
+
+	// Section: It works
+	&-works
+		&-title
+			+media-breakpoint-up(lg)
+				padding-right: 60px
+		&-list
+			&-item
+				&:not(:first-child)
+					padding-top: 30px
+					+media-breakpoint-down(md)
+						padding-top: 20px
+				&:not(:last-child)
+					padding-bottom: 30px
+					border-bottom: 1px solid $dark
+					+media-breakpoint-down(md)
+						padding-bottom: 20px
+				.title
+					margin-bottom: 0
+				.description
+					margin-top: 5px
+					margin-bottom: 0
+
+	// Section: How it works
+	&-steps
+		&-list
+			counter-reset: steps-counter
+			&-col
+				&:nth-child(odd)
+					.styling-steps-list-item
+						background-color: $white
+						&::before
+							text-shadow: 1px 1px 0 $gray-300, -1px -1px 0 $gray-300, 1px -1px 0 $gray-300, -1px 1px 0 $gray-300, 1px 1px 0 $gray-300
+							color: $white
+							opacity: 0.4
+				&:nth-child(even)
+					.styling-steps-list-item
+						background-color: $dark
+						color: $white
+						&::before
+							text-shadow: 1px 1px 0 $white, -1px -1px 0 $white, 1px -1px 0 $white, -1px 1px 0 $white, 1px 1px 0 $white
+							color: $dark
+							opacity: 0.25
+			&-item
+				overflow: hidden
+				position: relative
+				z-index: 1
+				height: 100%
+				min-height: 400px
+				padding: 60px 60px 60px 40px
+				border: 1px solid $dark
+				+media-breakpoint-down(lg)
+					padding: 45px 45px 45px 30px
+				+media-breakpoint-down(md)
+					min-height: 260px
+				+media-breakpoint-down(sm)
+					padding: 30px 30px 30px 20px
+				&::before
+					counter-increment: steps-counter
+					content: counter(steps-counter)
+					position: absolute
+					right: -28px
+					bottom: 25px
+					z-index: -1
+					font-size: 565px
+					font-weight: $w-bold
+					line-height: 0.66
+					+media-breakpoint-down(md)
+						font-size: 375px
+						bottom: 10px
+				.title
+					margin-bottom: 10px
+					+font-size(xs)
+					font-weight: $w-semibold
+				.description
+					> p
+						margin-bottom: 5px
+						&:last-child
+							margin-bottom: 0
+
+	// Section: Packages
+	&-packages
+		padding-top: 75px
+		padding-bottom: 75px
+		background-color: #F2F2F2
+		+media-breakpoint-down(xl)
+			padding-top: 60px
+			padding-bottom: 60px
+		+media-breakpoint-down(sm)
+			padding-top: 45px
+			padding-bottom: 45px
+
+		&-slider
+			padding-right: 1px
+			.swiper-slide
+				height: auto

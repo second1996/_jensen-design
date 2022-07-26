@@ -1,0 +1,60 @@
+article, .article
+	h1, h2, h3, h4, h5, h6,
+	p,
+	img,
+	ul,
+	ol,
+	blockquote, table
+		margin-bottom: 15px
+
+	b,
+	strong
+		font-weight: $w-semibold
+
+	a
+		color: $black
+		&:hover
+			color: $black
+
+	ul
+		> li
+			display: flex
+			align-items: baseline
+			&:not(:last-child)
+				margin-bottom: 10px
+			&::before
+				content: ''
+				position: relative
+				top: -2px
+				flex: 0 0 auto
+				display: block
+				width: 8px
+				height: 8px
+				margin-right: 16px
+				background-color: $dark
+
+	ol
+		counter-reset: ol-list
+		padding-left: 0
+		> li
+			list-style: none
+			display: flex
+			align-items: baseline
+			&:not(:last-child)
+				margin-bottom: 16px
+			&::before
+				content: counter(ol-list)
+				counter-increment: ol-list
+				position: relative
+				top: -1px
+				flex: 0 0 auto
+				display: flex
+				align-items: center
+				justify-content: center
+				width: 24px
+				height: 24px
+				margin-right: 16px
+				background-color: $black
+				color: $white
+				font-size: 12px
+				line-height: 1

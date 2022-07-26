@@ -1,0 +1,137 @@
+@import 'node_modules/swiper/swiper.scss'
+@import 'node_modules/swiper/modules/pagination/pagination.scss'
+@import 'node_modules/swiper/modules/navigation/navigation.scss'
+@import 'node_modules/swiper/modules/effect-fade/effect-fade.scss'
+
+// Pagination
+.swiper-pagination
+	position: static
+	margin-top: 20px
+	&-bullet
+		width: 8px
+		height: 8px
+		border-radius: 50%
+		background-color: $black
+		opacity: 0.2
+		transition: $trs
+		&:hover:not(.swiper-pagination-bullet-active)
+			opacity: 0.35
+		&-active
+			pointer-events: none
+			opacity: 1
+	&-circle
+		position: relative
+		&.swiper-pagination-bullet
+			width: 24px
+			height: 24px
+			display: inline-flex
+			align-items: center
+			justify-content: center
+			background-color: $trsp
+			&-active
+				> svg
+					animation-name: swiperCircleBullet
+		&::after
+			content: ''
+			position: absolute
+			top: 50%
+			left: 50%
+			display: block
+			width: 8px
+			height: 8px
+			border-radius: 50%
+			background-color: $black
+			transform: translate(-50%, -50%)
+		> svg
+			display: flex
+			align-items: center
+			justify-content: center
+			stroke-dasharray: 101
+			stroke-dashoffset: 101
+			transform: rotate(-90deg)
+			animation-timing-function: linear
+			animation-fill-mode: forwards
+
+// Navigation
+.swiper-button-prev,
+.swiper-button-next
+	display: flex
+	align-items: center
+	justify-content: center
+	width: 48px
+	height: 48px
+	margin-top: -24px
+	background-color: $white
+	color: $black
+	font-size: 22px
+	line-height: 1
+	transition: $trs
+	+media-breakpoint-down(xl)
+		width: 42px
+		height: 42px
+		margin-top: -21px
+	+media-breakpoint-down(md)
+		width: 36px
+		height: 36px
+		margin-top: -18px
+		font-size: 18px
+	> svg
+		width: 1em
+		height: 1em
+		fill: currentColor
+		transition: transform $trs
+	&::after
+		display: none
+	&.swiper-button-disabled
+		color: $gray-300
+		opacity: 1
+
+.swiper-button-prev
+	left: 0
+	&:hover
+		> svg
+			transform: translateX(-4px)
+
+.swiper-button-next
+	right: 0
+	&:hover
+		> svg
+			transform: translateX(4px)
+
+.swiper-navigation
+	display: flex
+	align-items: center
+	.swiper-button-prev,
+	.swiper-button-next
+		position: static
+		width: 22px
+		height: 22px
+		margin-top: 0
+		background-color: $trsp
+		+media-breakpoint-down(md)
+			font-size: 22px
+	&-separator
+		flex: 0 0 auto
+		width: 1px
+		height: 30px
+		margin-left: 40px
+		margin-right: 40px
+		border-radius: 3px
+		background-color: $gray-300
+		+media-breakpoint-down(md)
+			margin-left: 30px
+			margin-right: 30px
+		+media-breakpoint-down(sm)
+			margin-left: 20px
+			margin-right: 20px
+
+// Products slider
+.products-slider
+	.swiper-slide
+		height: auto
+	.card.card-product
+		border: 0
+		box-shadow: inset 0 0 0 1px $dark
+		.card-body
+			border-top: 0
+			box-shadow: inset 0 0 0 1px $dark

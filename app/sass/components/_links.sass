@@ -1,0 +1,19 @@
+// Variants
+.link-arrow
+	display: inline-flex
+	align-items: center
+	text-decoration: underline
+	+font-size(xs)
+	&:hover
+		&::after
+			transform: translateX(6px)
+	&::after
+		content: ''
+		flex: 0 0 auto
+		display: inline-block
+		width: 20px
+		height: 7px
+		margin-left: 10px
+		background: url('../images/icons/short-dark-arrow.svg') no-repeat left center / contain
+		will-change: transform
+		transition: transform $trs

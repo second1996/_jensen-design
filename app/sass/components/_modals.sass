@@ -1,0 +1,83 @@
+// Base
+.modal
+	padding-right: 0!important
+	padding-left: 0!important
+	&.fade
+		.modal-dialog
+			transform: scale(0.95)
+	&.show
+		.modal-dialog
+			transform: none
+
+	&-backdrop
+		background-color: $black
+		&.show
+			opacity: 0.35
+
+	.modal-dialog
+		max-width: 620px
+		+media-breakpoint-up(sm)
+			padding-left: 15px
+			padding-right: 15px
+
+	.modal-content
+		padding: 45px
+		border-radius: 0
+		border: none
+		box-shadow: none
+		+media-breakpoint-down(md)
+			padding: 30px
+		+media-breakpoint-down(xs)
+			padding: 20px
+
+	.modal-header
+		padding: 0
+		border-bottom: 0
+		.modal-title
+			flex: 1 1 auto
+			font-size: 26px
+			padding-right: 20px
+			+media-breakpoint-down(sm)
+				font-size: 22px
+		.btn-close
+			flex: 0 0 auto
+			margin: 0
+			padding: 0
+
+	.modal-body
+		padding: 30px 0 0
+
+// Modal: Shop the room
+.modal.modal-room
+	.modal-dialog
+		display: flex
+		align-items: flex-end
+		max-width: 100%
+		min-height: calc(100% - 60px)
+		margin-top: 60px
+		margin-bottom: 0
+		padding-left: 0
+		padding-right: 0
+
+	.modal-content
+		padding: 60px 0 100px
+		+media-breakpoint-down(xxl)
+			padding: 45px 0 60px
+		+media-breakpoint-down(lg)
+			padding: 45px 0
+		+media-breakpoint-down(md)
+			padding: 30px 0
+
+	.modal-header
+		margin-bottom: 60px
+		+media-breakpoint-down(xxl)
+			margin-bottom: 45px
+		+media-breakpoint-down(md)
+			margin-bottom: 30px
+
+	.modal-body
+		padding: 0
+
+	.modal-room-slider
+		.swiper-slide
+			height: auto
