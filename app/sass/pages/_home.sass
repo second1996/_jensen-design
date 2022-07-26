@@ -1,10 +1,139 @@
-.styling
-	&-navigation
+// Section: Heroes
+.s-heroes
+	overflow: hidden
+	position: relative
+	height: calc(100vh - 100px)
+	min-height: 600px
+	max-height: 800px
+	+media-breakpoint-down(xl)
+		height: calc(100vh - 90px)
+		min-height: 500px
+		max-height: 600px
+	+media-breakpoint-down(md)
+		height: auto
+		min-height: auto
+		max-height: 100%
+	&::after
+		content: ''
+		position: absolute
+		left: 0
+		right: 0
+		bottom: 0
+		height: 1px
+		background-color: $dark
+	.container
+		height: 100%
+	&-inner
+		position: relative
+		display: flex
+		align-items: stretch
+		height: 100%
+		+media-breakpoint-down(md)
+			flex-direction: column
+		&::before,
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			bottom: 0
+			width: 1px
+			background-color: $dark
+		&::before
+			left: 0
+		&::after
+			right: 0
+	&-photo
+		flex: 0 0 540px
+		position: relative
+		padding: 20px
+		+media-breakpoint-down(xl)
+			flex-basis: 420px
+		+media-breakpoint-down(lg)
+			flex-basis: 380px
+		+media-breakpoint-down(md)
+			flex-basis: auto
+			height: 500px
+		+media-breakpoint-down(sm)
+			height: 380px
+			padding: 15px
+		+media-breakpoint-down(xs)
+			height: 320px
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			right: -1px
+			bottom: 0
+			width: 1px
+			background-color: $dark
+			+media-breakpoint-down(md)
+				top: auto
+				left: 0
+				right: 0
+				bottom: 0
+				width: 100%
+				height: 1px
+		> img
+			border-radius: 300px 300px 0 0
+	&-content
+		flex: 1 1 auto
+		display: flex
+		flex-direction: column
+		.suptitle,
+		.title
+			position: relative
+			margin-bottom: 0
+			&::after
+				content: ''
+				position: absolute
+				left: 0
+				right: 0
+				bottom: 0
+				height: 1px
+				background-color: $dark
+		.suptitle
+			flex: 0 1 auto
+			display: flex
+			align-items: center
+			min-height: 105px
+			padding: 20px
+			+media-breakpoint-down(xl)
+				min-height: 90px
+			+media-breakpoint-down(md)
+				min-height: auto
+			+media-breakpoint-down(sm)
+				padding: 15px
+		.title
+			flex: 0 1 auto
+			padding: 20px
+			font-size: 64px
+			+media-breakpoint-down(xxl)
+				+font-size(xl)
+			+media-breakpoint-down(sm)
+				padding: 15px
+		.photo
+			flex: 1 1 auto
+			overflow: hidden
+			padding: 20px
+			+media-breakpoint-down(sm)
+				padding: 15px
+			> img
+				border-radius: 0 0 0 300px
+				+media-breakpoint-down(xl)
+					border-radius: 0 0 0 200px
+				+media-breakpoint-down(lg)
+					border-radius: 0 0 0 150px
+				+media-breakpoint-down(sm)
+					border-radius: 0 0 0 100px
+
+// Section: Intro
+.s-intro
+	&-nav
 		display: grid
 		grid-template-columns: repeat(3, 1fr)
 		+media-breakpoint-down(sm)
 			grid-template-columns: 1fr
-		&-item
+		&-link
 			display: flex
 			align-items: center
 			justify-content: center
@@ -23,146 +152,146 @@
 				background-color: $dark
 				color: $white
 
-	// Section: Rooms
-	&-rooms
-		&-slider
-			&-main
-				.card.card-category
-					margin-bottom: 0
-					.card-photo
-						height: 410px
-						+media-breakpoint-down(xl)
-							height: 320px
-						+media-breakpoint-down(md)
-							height: 280px
-						+media-breakpoint-down(sm)
-							height: 240px
-						+media-breakpoint-down(xs)
-							height: 200px
-			&-secondary
-				height: 100%
-				padding-left: 1px
-				.swiper-slide
-					&:not(.swiper-slide-active)
-						cursor: pointer
-						+media-breakpoint-down(lg)
-							cursor: default
-							opacity: 0.3
-							transition: opacity $trs
-				&-navigation
-					+media-breakpoint-up(lg)
-						position: absolute
-						right: 0
-						bottom: 0
-					+media-breakpoint-down(lg)
-						justify-content: center
-						margin-top: 20px
-				.card.card-category
-					margin-bottom: 0
-					.card-photo
-						height: 270px
-						+media-breakpoint-down(xl)
-							height: 200px
-						+media-breakpoint-down(lg)
-							height: 100px
-						+media-breakpoint-down(sm)
-							height: 60px
-					.card-meta
-						+media-breakpoint-down(lg)
-							display: none
-
-	// Section: It works
-	&-works
-		&-title
-			+media-breakpoint-up(lg)
-				padding-right: 60px
-		&-list
-			&-item
-				&:not(:first-child)
-					padding-top: 30px
-					+media-breakpoint-down(md)
-						padding-top: 20px
-				&:not(:last-child)
-					padding-bottom: 30px
-					border-bottom: 1px solid $dark
-					+media-breakpoint-down(md)
-						padding-bottom: 20px
-				.title
-					margin-bottom: 0
-				.description
-					margin-top: 5px
-					margin-bottom: 0
-
-	// Section: How it works
-	&-steps
-		&-list
-			counter-reset: steps-counter
-			&-col
-				&:nth-child(odd)
-					.styling-steps-list-item
-						background-color: $white
-						&::before
-							text-shadow: 1px 1px 0 $gray-300, -1px -1px 0 $gray-300, 1px -1px 0 $gray-300, -1px 1px 0 $gray-300, 1px 1px 0 $gray-300
-							color: $white
-							opacity: 0.4
-				&:nth-child(even)
-					.styling-steps-list-item
-						background-color: $dark
-						color: $white
-						&::before
-							text-shadow: 1px 1px 0 $white, -1px -1px 0 $white, 1px -1px 0 $white, -1px 1px 0 $white, 1px 1px 0 $white
-							color: $dark
-							opacity: 0.25
-			&-item
-				overflow: hidden
-				position: relative
-				z-index: 1
-				height: 100%
-				min-height: 400px
-				padding: 60px 60px 60px 40px
-				border: 1px solid $dark
-				+media-breakpoint-down(lg)
-					padding: 45px 45px 45px 30px
+// Section: Rooms
+.s-rooms
+	margin-top: 60px
+	&-slider-main
+		.card.card-category
+			margin-bottom: 0
+			.card-photo
+				height: 410px
+				+media-breakpoint-down(xl)
+					height: 320px
 				+media-breakpoint-down(md)
-					min-height: 260px
+					height: 280px
 				+media-breakpoint-down(sm)
-					padding: 30px 30px 30px 20px
-				&::before
-					counter-increment: steps-counter
-					content: counter(steps-counter)
-					position: absolute
-					right: -28px
-					bottom: 25px
-					z-index: -1
-					font-size: 565px
-					font-weight: $w-bold
-					line-height: 0.66
-					+media-breakpoint-down(md)
-						font-size: 375px
-						bottom: 10px
-				.title
-					margin-bottom: 10px
-					+font-size(xs)
-					font-weight: $w-semibold
-				.description
-					> p
-						margin-bottom: 5px
-						&:last-child
-							margin-bottom: 0
+					height: 240px
+				+media-breakpoint-down(xs)
+					height: 200px
+	&-slider-secondary
+		height: 100%
+		padding-left: 1px
+		.swiper-slide
+			&:not(.swiper-slide-active)
+				cursor: pointer
+				+media-breakpoint-down(lg)
+					cursor: default
+					opacity: 0.3
+					transition: opacity $trs
+		&-navigation
+			+media-breakpoint-up(lg)
+				position: absolute
+				right: 0
+				bottom: 0
+			+media-breakpoint-down(lg)
+				justify-content: center
+				margin-top: 20px
+		.card.card-category
+			margin-bottom: 0
+			.card-photo
+				height: 270px
+				+media-breakpoint-down(xl)
+					height: 200px
+				+media-breakpoint-down(lg)
+					height: 100px
+				+media-breakpoint-down(sm)
+					height: 60px
+			.card-meta
+				+media-breakpoint-down(lg)
+					display: none
 
-	// Section: Packages
-	&-packages
-		padding-top: 75px
-		padding-bottom: 75px
-		background-color: #F2F2F2
-		+media-breakpoint-down(xl)
-			padding-top: 60px
-			padding-bottom: 60px
-		+media-breakpoint-down(sm)
-			padding-top: 45px
-			padding-bottom: 45px
+// Section: It works
+.s-works
+	&-title
+		+media-breakpoint-up(lg)
+			padding-right: 60px
+	&-list
+		&-item
+			&:not(:first-child)
+				padding-top: 30px
+				+media-breakpoint-down(md)
+					padding-top: 20px
+			&:not(:last-child)
+				padding-bottom: 30px
+				border-bottom: 1px solid $dark
+				+media-breakpoint-down(md)
+					padding-bottom: 20px
+			.title
+				margin-bottom: 0
+			.description
+				margin-top: 5px
+				margin-bottom: 0
 
-		&-slider
-			padding-right: 1px
-			.swiper-slide
-				height: auto
+// Section: How it works
+.s-steps
+	&-list
+		counter-reset: steps-counter
+		&-col
+			&:nth-child(odd)
+				.s-steps-list-item
+					background-color: $white
+					&::before
+						text-shadow: 1px 1px 0 $gray-300, -1px -1px 0 $gray-300, 1px -1px 0 $gray-300, -1px 1px 0 $gray-300, 1px 1px 0 $gray-300
+						color: $white
+						opacity: 0.4
+			&:nth-child(even)
+				.s-steps-list-item
+					background-color: $dark
+					color: $white
+					&::before
+						text-shadow: 1px 1px 0 $white, -1px -1px 0 $white, 1px -1px 0 $white, -1px 1px 0 $white, 1px 1px 0 $white
+						color: $dark
+						opacity: 0.25
+		&-item
+			overflow: hidden
+			position: relative
+			z-index: 1
+			height: 100%
+			min-height: 400px
+			padding: 60px 60px 60px 40px
+			border: 1px solid $dark
+			+media-breakpoint-down(lg)
+				padding: 45px 45px 45px 30px
+			+media-breakpoint-down(md)
+				min-height: 260px
+			+media-breakpoint-down(sm)
+				padding: 30px 30px 30px 20px
+			&::before
+				counter-increment: steps-counter
+				content: counter(steps-counter)
+				position: absolute
+				right: -28px
+				bottom: 25px
+				z-index: -1
+				font-size: 565px
+				font-weight: $w-bold
+				line-height: 0.66
+				+media-breakpoint-down(md)
+					font-size: 375px
+					bottom: 10px
+			.title
+				margin-bottom: 10px
+				+font-size(xs)
+				font-weight: $w-semibold
+			.description
+				> p
+					margin-bottom: 5px
+					&:last-child
+						margin-bottom: 0
+
+// Section: Packages
+.s-packages
+	padding-top: 75px
+	padding-bottom: 75px
+	background-color: #F2F2F2
+	+media-breakpoint-down(xl)
+		padding-top: 60px
+		padding-bottom: 60px
+	+media-breakpoint-down(sm)
+		padding-top: 45px
+		padding-bottom: 45px
+
+	&-slider
+		padding-right: 1px
+		.swiper-slide
+			height: auto

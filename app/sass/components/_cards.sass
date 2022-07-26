@@ -4,6 +4,79 @@
 	display: block
 	height: 100%
 
+// Category card
+.card.card-category
+	height: auto
+	margin-bottom: 20px
+	&--xl
+		.card-photo
+			height: 600px
+			+media-breakpoint-down(xxl)
+				height: 400px
+			+media-breakpoint-down(lg)
+				height: 200px
+	&--lg
+		.card-photo
+			height: 520px
+			+media-breakpoint-down(xxl)
+				height: 340px
+			+media-breakpoint-down(lg)
+				height: 200px
+	&--sm
+		.card-photo
+			height: 300px
+			+media-breakpoint-down(xxl)
+				height: 200px
+	&--xl,
+	&--lg,
+	&--sm
+		.card-photo
+			+media-breakpoint-down(md)
+				height: 260px
+			+media-breakpoint-down(sm)
+				height: 200px
+			+media-breakpoint-down(xs)
+				height: 160px
+	.card-photo
+		overflow: hidden
+		display: block
+	.card-meta
+		display: flex
+		justify-content: space-between
+		border: 1px solid $dark
+		.title
+			flex: 1 1 auto
+			display: inline-flex
+			align-items: center
+			height: auto
+			margin-bottom: 0
+			padding: 15px 30px
+			border-right: 0
+			font-size: 24px
+			line-height: 1.3
+			word-break: break-word
+			+media-breakpoint-down(lg)
+				padding: 12px 20px
+				font-size: 20px
+			+media-breakpoint-down(sm)
+				font-size: 18px
+		.permalink
+			flex: 0 0 auto
+			display: inline-flex
+			align-items: center
+			justify-content: center
+			padding-left: 40px
+			padding-right: 40px
+			border-left: 1px solid $dark
+			color: $black
+			font-size: 40px
+			+media-breakpoint-down(xl)
+				padding-left: 30px
+				padding-right: 30px
+			&:hover
+				background-color: $dark
+				color: $white
+
 // Card Styling service
 .card.card-styling
 	display: flex
