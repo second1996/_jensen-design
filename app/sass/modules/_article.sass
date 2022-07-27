@@ -11,27 +11,26 @@ article, .article
 	strong
 		font-weight: $w-semibold
 
+	h1
+		+font-size(xl)
+	h2, h3
+		+font-size(lg)
+	h4, h5
+		+font-size(md)
+	h6
+		+font-size(sm)
+
 	a
 		color: $black
 		&:hover
 			color: $black
 
 	ul
-		> li
-			display: flex
-			align-items: baseline
-			&:not(:last-child)
-				margin-bottom: 10px
-			&::before
-				content: ''
-				position: relative
-				top: -2px
-				flex: 0 0 auto
-				display: block
-				width: 8px
-				height: 8px
-				margin-right: 16px
-				background-color: $dark
+		padding-left: 20px
+		li
+			margin: 5px 0
+			list-style-type: square
+			line-height: 1.5
 
 	ol
 		counter-reset: ol-list

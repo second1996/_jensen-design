@@ -8,30 +8,61 @@ main.main
 		padding-top: 75px
 		padding-bottom: 75px
 
-// Thanks page
-.thanks
-	&-content
-		max-width: 1096px
-		margin-left: auto
-		margin-right: auto
-		text-align: center
-		+media-breakpoint-down(xxl)
-			max-width: 860px
-		.title
-			margin-bottom: 0
-		.description
-			margin-top: 30px
-			margin-bottom: 0
-			+media-breakpoint-down(lg)
-				margin-top: 15px
-		.btn
-			margin-top: 45px
-			+media-breakpoint-down(lg)
-				margin-top: 30px
+.main-inner
+	padding-top: 50px
+	padding-bottom: 50px
+	+media-breakpoint-down(md)
+		padding-top: 30px
 
-// Error 404 page
-.error404
-	background-color: $dark
+.page-heading
+	padding-top: 50px
+	+media-breakpoint-down(md)
+		padding-top: 30px
+	.logo
+		margin-bottom: 50px
+		+media-breakpoint-down(md)
+			margin-bottom: 30px
+		&-link
+			display: flex
+			align-items: center
+			&:hover
+				opacity: 0.65
+			> img
+				flex: 0 0 auto
+				height: 48px
+				+media-breakpoint-down(md)
+					height: 32px
+	.breadcrumbs
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+		margin-bottom: 8px
+		> li
+			display: inline-flex
+			align-items: center
+			color: $gray-200
+			+font-size(xxs)
+			&:not(:last-child)::after
+				content: '/'
+				display: inline-block
+				vertical-align: middle
+				margin-left: 16px
+				margin-right: 16px
+				color: $black
+				+media-breakpoint-down(md)
+					margin-left: 12px
+					margin-right: 12px
+			> a
+				color: $black
+				&:hover
+					color: $gray-200
+	.title
+		margin-bottom: 0
+
+// Thanks & 404 pages
+.error404,
+.thanks
+	background-color: $black
 	.main
 		display: flex
 		align-items: center
@@ -45,6 +76,22 @@ main.main
 		text-align: center
 		+media-breakpoint-down(xxl)
 			max-width: 860px
+		.title
+			margin-bottom: 0
+			color: $white
+		.description
+			margin-top: 30px
+			margin-bottom: 0
+			color: $white
+			+media-breakpoint-down(lg)
+				margin-top: 15px
+		.btn
+			margin-top: 45px
+			+media-breakpoint-down(lg)
+				margin-top: 30px
+
+.error404
+	&-content
 		.title
 			display: flex
 			flex-direction: column
@@ -65,13 +112,3 @@ main.main
 				+media-breakpoint-down(sm)
 					flex-basis: 20vw
 					margin-bottom: 30px
-		.description
-			margin-top: 30px
-			margin-bottom: 0
-			color: $white
-			+media-breakpoint-down(lg)
-				margin-top: 15px
-		.btn
-			margin-top: 45px
-			+media-breakpoint-down(lg)
-				margin-top: 30px

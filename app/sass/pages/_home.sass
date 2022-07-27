@@ -4,7 +4,7 @@
 	position: relative
 	height: calc(100vh - 100px)
 	min-height: 600px
-	max-height: 800px
+	max-height: 860px
 	+media-breakpoint-down(xl)
 		height: calc(100vh - 90px)
 		min-height: 500px
@@ -20,7 +20,7 @@
 		right: 0
 		bottom: 0
 		height: 1px
-		background-color: $dark
+		background-color: $black
 	.container
 		height: 100%
 	&-inner
@@ -37,7 +37,7 @@
 			top: 0
 			bottom: 0
 			width: 1px
-			background-color: $dark
+			background-color: $black
 		&::before
 			left: 0
 		&::after
@@ -65,7 +65,7 @@
 			right: -1px
 			bottom: 0
 			width: 1px
-			background-color: $dark
+			background-color: $black
 			+media-breakpoint-down(md)
 				top: auto
 				left: 0
@@ -90,7 +90,7 @@
 				right: 0
 				bottom: 0
 				height: 1px
-				background-color: $dark
+				background-color: $black
 		.suptitle
 			flex: 0 1 auto
 			display: flex
@@ -141,7 +141,7 @@
 			margin-right: -1px
 			margin-bottom: -1px
 			padding: 10px
-			border: 1px solid $dark
+			border: 1px solid $black
 			background-color: $white
 			font-size: 16px
 			line-height: 1.25
@@ -149,7 +149,7 @@
 			+media-breakpoint-down(sm)
 				height: 50px
 			&:hover
-				background-color: $dark
+				background-color: $black
 				color: $white
 
 // Section: Rooms
@@ -213,7 +213,7 @@
 					padding-top: 20px
 			&:not(:last-child)
 				padding-bottom: 30px
-				border-bottom: 1px solid $dark
+				border-bottom: 1px solid $black
 				+media-breakpoint-down(md)
 					padding-bottom: 20px
 			.title
@@ -236,11 +236,11 @@
 						opacity: 0.4
 			&:nth-child(even)
 				.s-steps-list-item
-					background-color: $dark
+					background-color: $black
 					color: $white
 					&::before
 						text-shadow: 1px 1px 0 $white, -1px -1px 0 $white, 1px -1px 0 $white, -1px 1px 0 $white, 1px 1px 0 $white
-						color: $dark
+						color: $black
 						opacity: 0.25
 		&-item
 			overflow: hidden
@@ -249,7 +249,7 @@
 			height: 100%
 			min-height: 400px
 			padding: 60px 60px 60px 40px
-			border: 1px solid $dark
+			border: 1px solid $black
 			+media-breakpoint-down(lg)
 				padding: 45px 45px 45px 30px
 			+media-breakpoint-down(md)
@@ -281,16 +281,6 @@
 
 // Section: Packages
 .s-packages
-	padding-top: 75px
-	padding-bottom: 75px
-	background-color: #F2F2F2
-	+media-breakpoint-down(xl)
-		padding-top: 60px
-		padding-bottom: 60px
-	+media-breakpoint-down(sm)
-		padding-top: 45px
-		padding-bottom: 45px
-
 	&-slider
 		padding-right: 1px
 		.swiper-slide

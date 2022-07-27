@@ -1,13 +1,18 @@
 .header
 	position: relative
+	&::before,
 	&::after
 		content: ''
 		position: absolute
 		left: 0
 		right: 0
-		bottom: 0
+		z-index: 1
 		height: 1px
-		background-color: $dark
+		background-color: $black
+	&::before
+		top: 0
+	&::after
+		bottom: 0
 	&-inner
 		position: relative
 		display: flex
@@ -26,7 +31,7 @@
 			top: 0
 			bottom: 0
 			width: 1px
-			background-color: $dark
+			background-color: $black
 		&::before
 			left: 0
 		&::after
@@ -66,7 +71,7 @@
 					left: 0
 					right: 0
 					height: 1px
-					background-color: $dark
+					background-color: $black
 					will-change: transform
 					transform: scaleX(0)
 					transition: transform $trs
@@ -83,7 +88,7 @@
 			left: 0
 			bottom: 0
 			width: 1px
-			background-color: $dark
+			background-color: $black
 		&-link
 			display: flex
 			align-items: center
@@ -110,11 +115,11 @@
 			left: 0
 			bottom: 0
 			width: 1px
-			background-color: $dark
+			background-color: $black
 		&-btn
 			width: 100%
 			height: 100%
-			color: $dark
+			color: $black
 			font-size: 30px
 			transition: $trs
 			&:hover
@@ -132,7 +137,7 @@
 			left: 0
 			bottom: 0
 			width: 1px
-			background-color: $dark
+			background-color: $black
 		.btn.btn-arrow
 			width: 300px
 			min-width: auto

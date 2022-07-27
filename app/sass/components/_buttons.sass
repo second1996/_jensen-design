@@ -25,22 +25,22 @@ button, .btn
 	height: 60px
 	padding-left: 20px
 	padding-right: 20px
-	border: 1px solid $dark
+	border: 1px solid $black
 	+media-breakpoint-down(lg)
 		min-width: 200px
 		height: 52px
 	&:not(.btn-arrow):not(.btn-back-arrow):not(.btn-favorite):not(.btn-purchase):hover
 		color: $white
-		background-color: $dark
+		background-color: $black
 	&:disabled
 		opacity: 0.9
 
 // Themes
 .btn.btn-dark
-	background-color: $dark
+	background-color: $black
 	color: $white
 	&:hover
-		background-color: $dark
+		background-color: $black
 	&.btn-arrow::after,
 	&.btn-back-arrow::before
 		background-image: url('../images/icons/short-white-arrow.svg')

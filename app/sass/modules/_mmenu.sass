@@ -13,16 +13,14 @@
 	visibility: hidden
 	transform: translateX(-10px)
 	transition: $trs
-	+media-breakpoint-down(md)
-		max-width: 575px
-	+media-breakpoint-down(xs)
+	+media-breakpoint-down(sm)
 		max-width: 100%
+		transform: scale(1.05)
 	&._is-active
 		pointer-events: auto
 		visibility: visible
 		opacity: 1
 		transform: none
-
 	&-wrapper
 		display: flex
 		flex-direction: column
@@ -33,7 +31,6 @@
 			padding: 18px 30px 30px
 		+media-breakpoint-down(xs)
 			padding: 18px 20px 30px
-
 	&-heading
 		flex: 0 0 auto
 		display: flex
@@ -48,105 +45,48 @@
 				font-size: 26px
 		.btn-close
 			flex: 0 0 auto
-
 	&-main
 		flex: 1 1 auto
 		display: flex
 		flex-direction: column
 		.mmenu-section:last-child
 			margin-top: auto
-
-	&-search
-		.form-control
-			height: 42px
-			margin-bottom: 0
-
 	&-section
 		&:not(:last-child)
 			margin-bottom: 30px
-		&-title
-			margin-bottom: 15px
-
-	&-categories
-		display: flex
-		flex-direction: column
-		&-item
-			&:not(:last-child)
-				margin-bottom: 20px
-			&.has-submenu
-				.mmenu-categories-link::after
-					display: block
-		&-link
-			display: inline-flex
-			align-items: baseline
-			font-size: 24px
-			font-weight: $w-bold
-			text-transform: lowercase
-			&._is-opened::after
-				transform: scaleY(-1)
-			&:hover
-				opacity: 0.6
-			&::after
-				content: ''
-				position: relative
-				top: -2px
-				flex: 0 0 auto
-				display: none
-				width: 10px
-				height: 10px
-				margin-left: 10px
-				will-change: transform
-				background: url('../images/icons/dropdown-arrow.svg') no-repeat center/contain
-				transition: transform $trs
-		&-submenu
-			overflow: hidden
-			padding-left: 15px
-			transition: height $trs
-			&:not(._is-toggled)
-				display: none
-			> li
-				margin-top: 15px
-				> a
-					display: inline-flex
-					align-items: baseline
-					font-size: 18px
-					font-weight: $w-semibold
-					text-transform: lowercase
-					&:hover::after
-						transform: none
-						opacity: 1
-					&::after
-						content: ''
-						pointer-events: none
-						position: relative
-						top: -2px
-						flex: 0 0 auto
-						width: 20px
-						height: 8px
-						margin-left: 10px
-						background: url('../images/icons/short-dark-arrow.svg') no-repeat center/contain
-						opacity: 0
-						transform: translateX(-3px)
-						transition: opacity $trs, transform $trs
-
 	&-navigation
 		> li
 			&:not(:last-child)
 				margin-bottom: 15px
 			> a
 				display: inline-block
-				font-size: 18px
-				font-weight: $w-semibold
+				font-size: 24px
+				font-weight: $w-medium
 				text-transform: lowercase
 				&:hover
 					opacity: 0.6
-
+	&-contacts
+		> li
+			&:not(:last-child)
+				margin-bottom: 6px
+		.phone,
+		.email
+			display: inline-block
+			&:hover
+				opacity: 0.6
+		.phone
+			+font-size(lg)
+			font-weight: $w-bold
+			+media-breakpoint-down(md)
+				font-size: 24px
+		.email
+			font-size: 18px
 	&-social
 		display: flex
 		flex-wrap: wrap
-		gap: 10px 0
 		&-item
 			flex: 0 0 50%
+			margin-top: -1px
 			&:nth-child(even)
 				.mmenu-social-link
 					border-left: 0
@@ -156,7 +96,7 @@
 			justify-content: center
 			height: 100%
 			padding: 12px 8px
-			border: 1px solid $dark
+			border: 1px solid $black
 			background-color: $white
 			font-size: 16px
 			line-height: 1
@@ -164,5 +104,10 @@
 			text-align: center
 			word-break: break-word
 			&:hover
-				background-color: $dark
+				background-color: $black
 				color: $white
+	.mmenu-discuss-btn
+		&.btn-arrow
+			width: 100%
+			min-width: auto
+			margin-top: -1px
