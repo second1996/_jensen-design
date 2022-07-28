@@ -61,7 +61,7 @@
 				font-size: 18px
 				text-transform: lowercase
 				+media-breakpoint-down(xxl)
-					margin-left: 50px
+					margin-left: 40px
 				&:hover::after
 					transform: none
 				&::after
@@ -146,6 +146,10 @@
 			border: 0
 			+font-size(xs)
 			transition-property: background-color, padding
+			+media-breakpoint-down(xxl)
+				width: 240px
+			+media-breakpoint-down(xl)
+				width: 300px
 			+media-breakpoint-down(md)
 				width: 190px
 			+media-breakpoint-down(sm)
